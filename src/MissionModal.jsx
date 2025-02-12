@@ -11,8 +11,13 @@ export const MissionModal = ({ mission, onClose }) => {
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
         <h2 className="text-xl font-bold">
           {mission.name}
-          <span className="ml-2 px-2 py-1 text-xs font-semibold rounded bg-red-500 text-white">
-            {mission.status}
+          <span className={`ml-2 px-2 py-1 text-xs font-semibold rounded ${ 
+          mission.status === "upcoming" 
+          ? "bg-teal-400 text-white" 
+          : mission.status === "success" 
+          ? "bg-green-700 text-white" 
+          : "bg-red-500 text-white" }`} > 
+          {mission.status} 
           </span>
         </h2>
         <p className="text-sm text-gray-500">{yearsAgo} years ago</p>
